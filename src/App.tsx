@@ -2,6 +2,7 @@ import React, { FC, ChangeEvent, useState } from "react";
 import "./App.css";
 import { ITask } from "./Interfaces";
 import TodoTask from "./components/TodoTask";
+import Header from "./components/Header";
 
 const App: FC = () => {
   const [task, setTask] = useState<string>("");
@@ -25,12 +26,13 @@ const App: FC = () => {
 
   const completeTask = (taskNameToDelete: string): void => {
     setTodoList(todoList.filter((task)=>{
-      return task.taskName != taskNameToDelete
+      return task.taskName !== taskNameToDelete
     }))
   }
 
   return (
     <div className="App">
+      <Header title="Todo Task" />
       <div className="header">
         <div className="inputContainer">
           <input
